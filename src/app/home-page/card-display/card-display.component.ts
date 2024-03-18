@@ -49,4 +49,20 @@ export class CardDisplayComponent {
       price: 200
     }
   ];
+
+  ngOnInit() {
+    if (this.cards.length > 6) {
+      const newCards: CardModel[] = [];
+      const chosenCards: number[] = [];
+      for (let i = 0; i < 6; i++) {
+        let newIndex: number;
+        do {
+          newIndex = Math.floor(Math.random() * this.cards.length);
+        } while (newIndex in chosenCards)
+        newCards[i] = this.cards[newIndex];
+        chosenCards[i] = newIndex;
+      }
+      this.cards = newCards;
+    }
+  }
 }
