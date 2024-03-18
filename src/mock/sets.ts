@@ -1,6 +1,6 @@
-import { CardModel } from "../models/card-model"
+import { ItemModel } from "../models/item-model"
 
-const sets: CardModel[] = [
+const sets: ItemModel[] = [
     {
         name: 'placeholder-set',
         id: '00000',

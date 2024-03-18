@@ -1,6 +1,6 @@
-import { CardModel } from "../models/card-model";
+import { ItemModel } from "../models/item-model";
 
-const figures: CardModel[] = [
+const figures: ItemModel[] = [
     {
         name: 'placeholder-figure',
         id: 'sw-0000',

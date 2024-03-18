@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
-import { CardModel } from '../../../models/card-model';
+import { ItemModel } from '../../../models/item-model';
 import { NgFor } from '@angular/common';
 
 @Component({
@@ -17,7 +17,7 @@ export class CardDisplayComponent {
   title: string = 'Title';
 
   @Input("data")
-  cards: CardModel[] = [
+  cards: ItemModel[] = [
     {
       name: 'placeholder1',
       id: '00001',
@@ -52,7 +52,7 @@ export class CardDisplayComponent {
 
   ngOnInit() {
     if (this.cards.length > 6) {
-      const newCards: CardModel[] = [];
+      const newCards: ItemModel[] = [];
       const chosenCards: number[] = [];
       for (let i = 0; i < 6; i++) {
         let newIndex: number;

@@ -1,8 +1,8 @@
-import { CardModel } from "../models/card-model";
+import { ItemModel } from "../models/item-model";
 import figures from "./figures";
 import sets from "./sets";
 
-const data: CardModel[] = [
+const data: ItemModel[] = [
     ...sets,
     ...figures,
 ];

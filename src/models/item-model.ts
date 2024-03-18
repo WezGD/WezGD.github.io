@@ -1,4 +1,4 @@
-export interface CardModel {
+export interface ItemModel {
     name: string;
     id: string;
     price: number;
