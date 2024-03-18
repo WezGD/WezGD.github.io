@@ -1,0 +1,19 @@
+mat-card {
+    width: 15%;
+    margin: 1%;
+}
+
+img.card-img {
+    max-width: 100%;
+}
+
+div.outer-div {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+}
+
+div.details-div {
+    display: flex;
+    flex-direction: row;
+}

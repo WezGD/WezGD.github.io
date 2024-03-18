@@ -1,0 +1,18 @@
+<div class="outer-div">
+    <mat-card *ngFor="let card of cards">
+        <mat-card-title>{{card.name}}</mat-card-title>
+        <mat-card-content>
+            <img class="card-img" src="https://th.bing.com/th/id/OIP.1MXXJIhTHKVry5Lk2239ogHaHv?rs=1&pid=ImgDetMain" alt="Placeholder Image">
+            <div class="details-div">
+                <mat-list>
+                    <mat-list-item>Number:</mat-list-item>
+                    <mat-list-item>Price:</mat-list-item>
+                </mat-list>
+                <mat-list>
+                    <mat-list-item>{{card.id}}</mat-list-item>
+                    <mat-list-item>${{card.price}}</mat-list-item>
+                </mat-list>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
