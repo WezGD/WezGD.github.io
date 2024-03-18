@@ -17,3 +17,7 @@ div.details-div {
     display: flex;
     flex-direction: row;
 }
+
+span.header {
+    font-size: large;
+}

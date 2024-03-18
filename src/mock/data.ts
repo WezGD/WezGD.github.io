@@ -5,4 +5,6 @@ import sets from "./sets";
 const data: CardModel[] = [
     ...sets,
     ...figures,
-]
+];
+
+export default data;

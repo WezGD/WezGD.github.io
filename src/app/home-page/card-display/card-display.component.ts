@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { CardModel } from '../../../models/card-model';
@@ -12,6 +12,11 @@ import { NgFor } from '@angular/common';
   styleUrl: './card-display.component.css'
 })
 export class CardDisplayComponent {
+
+  @Input("title")
+  title: string = 'Title';
+
+  @Input("data")
   cards: CardModel[] = [
     {
       name: 'placeholder1',
@@ -43,5 +48,5 @@ export class CardDisplayComponent {
       id: '00006',
       price: 200
     }
-  ]
+  ];
 }
