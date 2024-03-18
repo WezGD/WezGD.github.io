@@ -10,7 +10,6 @@ img.card-img {
 div.outer-div {
     display: flex;
     flex-direction: row;
-    overflow-x: scroll;
 }
 
 div.details-div {

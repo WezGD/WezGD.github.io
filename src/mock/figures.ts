@@ -2,8 +2,8 @@ import { CardModel } from "../models/card-model";
 
 const figures: CardModel[] = [
     {
-        name: 'placeholder',
-        id: '00000',
+        name: 'placeholder-figure',
+        id: 'sw-0000',
         price: 20
     }
 ];
