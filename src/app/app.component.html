@@ -2,9 +2,9 @@
     <mat-sidenav mode="over" #sideNav><app-side-nav /></mat-sidenav>
     <mat-sidenav-content>
         <app-header [sideNav]="sideNav" />
-        <app-home-page />
+        <router-outlet />
     </mat-sidenav-content>
 </mat-sidenav-container>
 
-<router-outlet />
+
 

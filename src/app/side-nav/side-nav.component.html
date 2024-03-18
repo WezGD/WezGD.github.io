@@ -1,10 +1,5 @@
 <mat-nav-list>
-    <mat-list-item>
-        <mat-icon matListItemIcon>home</mat-icon>
-        Home Page
-    </mat-list-item>
-    <mat-list-item>
-        <mat-icon matListItemIcon>search</mat-icon>
-        Search Page
-    </mat-list-item>
+    <a mat-list-item *ngFor="let link of links" href={{link.link}}>
+        <mat-icon matListItemIcon>{{link.icon}}</mat-icon> {{ link.title }}
+    </a>
 </mat-nav-list>
