@@ -11,14 +11,16 @@ import {
   MatPseudoCheckboxModule,
   MatRippleModule,
   ObserversModule,
-  Platform,
   RippleRenderer,
   SPACE,
+  hasModifierKey
+} from "./chunk-IN75NVQN.js";
+import {
+  Platform,
   _getFocusedElementPierceShadowDom,
   coerceBooleanProperty,
-  coerceNumberProperty,
-  hasModifierKey
-} from "./chunk-Z3MJN7NW.js";
+  coerceNumberProperty
+} from "./chunk-CSS6SCGV.js";
 import {
   CommonModule,
   NgTemplateOutlet,

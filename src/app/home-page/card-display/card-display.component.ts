@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { ItemModel } from '../../../models/item-model';
@@ -20,10 +20,22 @@ export class CardDisplayComponent {
   @Input("data")
   cards: ItemModel[] = [];
 
+  @ViewChild('outerDiv')
+  outerDivRef?: ElementRef<HTMLElement>;
+
+  hideImages: boolean = false;
+
+  outerLandscapeClass = 'outer-div-landscape';
+  outerPortraitClass = 'outer-div-portrait';
+
+  cardLandscapeClass = 'card-landscape';
+  cardPortraitClass = 'card-portrait';
+
+  contentPortraitClass = 'portrait';
+
   constructor(private responsive: BreakpointObserver) {}
 
   checkForDuplicates(newItem: ItemModel, items: ItemModel[]) {
-    console.log('duplicate');
     for(let item of items) {
       if(item === newItem) {
         return false;
@@ -47,8 +59,32 @@ export class CardDisplayComponent {
       this.cards = newCards;
     }
 
-    this.responsive.observe(Breakpoints.HandsetPortrait).subscribe(() => {
-      console.log('change styling');
+    this.responsive.observe([Breakpoints.Small, Breakpoints.XSmall]).subscribe((value) => {
+      const outerDiv = this.outerDivRef?.nativeElement;
+      const cardElems = document.querySelectorAll('mat-card');
+      if (value.breakpoints[Breakpoints.Small] || value.breakpoints[Breakpoints.XSmall]) {
+        this.hideImages = true;
+        outerDiv?.classList.remove(this.outerLandscapeClass);
+        outerDiv?.classList.add(this.outerPortraitClass);
+        cardElems.forEach((elem) => {
+          if (!elem.classList.contains(this.cardPortraitClass)) {
+            elem.classList.remove(this.cardLandscapeClass);
+            elem.classList.add(this.cardPortraitClass);
+            elem.children.item(1)?.classList.add(this.contentPortraitClass);
+          }
+        });
+      } else {
+        this.hideImages = false;
+        outerDiv?.classList.remove(this.outerPortraitClass);
+        outerDiv?.classList.add(this.outerLandscapeClass);
+        cardElems.forEach((elem) => {
+          if (!elem.classList.contains(this.cardLandscapeClass)) {
+            elem.classList.remove(this.cardPortraitClass);
+            elem.classList.add(this.cardLandscapeClass);
+            elem.children.item(1)?.classList.remove(this.contentPortraitClass);
+          }
+        });
+      }
     });
   }
 }

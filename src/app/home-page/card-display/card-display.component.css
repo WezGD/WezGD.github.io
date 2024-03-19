@@ -1,6 +1,18 @@
-mat-card {
+mat-card.card-landscape {
     width: 15%;
+    min-width: fit-content;
     margin: 1%;
+}
+
+mat-card.card-portrait {
+    width: 100%;
+    margin-inline: 5%;
+    margin-block: 2%;
+}
+
+mat-card-content.portrait {
+    display: flex;
+    flex-direction: row;
 }
 
 img.card-img {
@@ -8,9 +20,15 @@ img.card-img {
     max-height: 10rem;
 }
 
-div.outer-div {
+div.outer-div-landscape {
     display: flex;
     flex-direction: row;
+}
+
+div.outer-div-portrait {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
 }
 
 div.details-div {
