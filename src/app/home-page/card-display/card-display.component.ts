@@ -3,6 +3,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { ItemModel } from '../../../models/item-model';
 import { NgFor } from '@angular/common';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-card-display',
@@ -17,38 +18,19 @@ export class CardDisplayComponent {
   title: string = 'Title';
 
   @Input("data")
-  cards: ItemModel[] = [
-    {
-      name: 'placeholder1',
-      id: '00001',
-      price: 10
-    },
-    {
-      name: 'placeholder2',
-      id: '00002',
-      price: 100
-    },
-    {
-      name: 'placeholder3',
-      id: '00003',
-      price: 20
-    },
-    {
-      name: 'placeholder4',
-      id: '00004',
-      price: 200
-    },
-    {
-      name: 'placeholder5',
-      id: '00005',
-      price: 20
-    },
-    {
-      name: 'placeholder6',
-      id: '00006',
-      price: 200
+  cards: ItemModel[] = [];
+
+  constructor(private responsive: BreakpointObserver) {}
+
+  checkForDuplicates(newItem: ItemModel, items: ItemModel[]) {
+    console.log('duplicate');
+    for(let item of items) {
+      if(item === newItem) {
+        return false;
+      }
     }
-  ];
+    return false;
+  }
 
   ngOnInit() {
     if (this.cards.length > 6) {
@@ -58,11 +40,15 @@ export class CardDisplayComponent {
         let newIndex: number;
         do {
           newIndex = Math.floor(Math.random() * this.cards.length);
-        } while (newIndex in chosenCards)
+        } while (this.checkForDuplicates(this.cards[newIndex], this.cards))
         newCards[i] = this.cards[newIndex];
         chosenCards[i] = newIndex;
       }
       this.cards = newCards;
     }
+
+    this.responsive.observe(Breakpoints.HandsetPortrait).subscribe(() => {
+      console.log('change styling');
+    });
   }
 }

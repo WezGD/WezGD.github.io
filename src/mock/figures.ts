@@ -4,7 +4,8 @@ const figures: ItemModel[] = [
     {
         name: 'placeholder-figure',
         id: 'sw-0000',
-        price: 20
+        price: 20,
+        image: ''
     }
 ];
 

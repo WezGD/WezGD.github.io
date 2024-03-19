@@ -1,9 +1,9 @@
 <br> <span class="header">{{title}}</span>
 <div class="outer-div">
     <mat-card *ngFor="let card of cards">
-        <mat-card-title>{{card.name}}</mat-card-title>
+        <mat-card-title>{{ (card.name.length>16)? (card.name.substring(0, 16).trim())+'...':(card.name) }}</mat-card-title>
         <mat-card-content>
-            <img class="card-img" src="https://th.bing.com/th/id/OIP.1MXXJIhTHKVry5Lk2239ogHaHv?rs=1&pid=ImgDetMain" alt="Placeholder Image">
+            <img class="card-img" [src]="card.image" alt="Placeholder Image">
             <div class="details-div">
                 <mat-list>
                     <mat-list-item>ID:</mat-list-item>
