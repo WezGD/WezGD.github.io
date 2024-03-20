@@ -1,7 +1,7 @@
 <br> <span class="header">{{title}}</span>
 <div #outerDiv class="outer-div-landscape">
-    <mat-card #card *ngFor="let card of cards">
-        <mat-card-title>{{ (card.name.length>16)? (card.name.substring(0, 16).trim())+'...':(card.name) }}</mat-card-title>
+    <mat-card #card class="card-landscape" *ngFor="let card of cards">
+        <mat-card-title>{{ (card.name.length > maxCardTitleLength)? (card.name.substring(0, maxCardTitleLength).trim())+'...':(card.name) }}</mat-card-title>
         <mat-card-content>
             <img class="card-img" [src]="card.image" [alt]="'Image of ' + card.name">
             <div class="details-div">

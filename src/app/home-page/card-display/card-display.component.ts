@@ -23,8 +23,6 @@ export class CardDisplayComponent {
   @ViewChild('outerDiv')
   outerDivRef?: ElementRef<HTMLElement>;
 
-  hideImages: boolean = false;
-
   outerLandscapeClass = 'outer-div-landscape';
   outerPortraitClass = 'outer-div-portrait';
 
@@ -32,6 +30,8 @@ export class CardDisplayComponent {
   cardPortraitClass = 'card-portrait';
 
   contentPortraitClass = 'portrait';
+
+  maxCardTitleLength = 16;
 
   constructor(private responsive: BreakpointObserver) {}
 
@@ -59,11 +59,11 @@ export class CardDisplayComponent {
       this.cards = newCards;
     }
 
-    this.responsive.observe([Breakpoints.Small, Breakpoints.XSmall]).subscribe((value) => {
+    this.responsive.observe([Breakpoints.XSmall]).subscribe((value) => {
       const outerDiv = this.outerDivRef?.nativeElement;
       const cardElems = document.querySelectorAll('mat-card');
-      if (value.breakpoints[Breakpoints.Small] || value.breakpoints[Breakpoints.XSmall]) {
-        this.hideImages = true;
+      if (value.breakpoints[Breakpoints.XSmall]) {
+        this.maxCardTitleLength = 32;
         outerDiv?.classList.remove(this.outerLandscapeClass);
         outerDiv?.classList.add(this.outerPortraitClass);
         cardElems.forEach((elem) => {
@@ -74,7 +74,7 @@ export class CardDisplayComponent {
           }
         });
       } else {
-        this.hideImages = false;
+        this.maxCardTitleLength = 16;
         outerDiv?.classList.remove(this.outerPortraitClass);
         outerDiv?.classList.add(this.outerLandscapeClass);
         cardElems.forEach((elem) => {
