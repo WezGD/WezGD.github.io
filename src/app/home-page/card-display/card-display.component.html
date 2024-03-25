@@ -1,7 +1,9 @@
 <br> <span class="header">{{title}}</span>
 <div #outerDiv class="outer-div-landscape">
     <mat-card #card class="card-landscape" *ngFor="let card of cards">
-        <mat-card-title>{{ (card.name.length > maxCardTitleLength)? (card.name.substring(0, maxCardTitleLength).trim())+'...':(card.name) }}</mat-card-title>
+        <mat-card-title>
+            <a (click)="handleClick(card.id)">{{ (card.name.length > maxCardTitleLength)? (card.name.substring(0, maxCardTitleLength).trim())+'...':(card.name) }}</a>
+        </mat-card-title>
         <mat-card-content>
             <img class="card-img" [src]="card.image" [alt]="'Image of ' + card.name">
             <div class="details-div">
@@ -11,7 +13,7 @@
                 </mat-list>
                 <mat-list>
                     <mat-list-item>{{card.id}}</mat-list-item>
-                    <mat-list-item>${{card.price}}</mat-list-item>
+                    <mat-list-item>${{card.price.toFixed(2)}}</mat-list-item>
                 </mat-list>
             </div>
         </mat-card-content>

@@ -1,1 +1,18 @@
-<p>item-page works!</p>
+<div #parent class="parent-div">
+    <span class="header">{{ item?.id }} - {{ item?.name }}</span>
+    <div #details class="details">
+        <img class="item-img" [src]="item?.image" [alt]="'Image of ' + item?.name">
+        <div #priceGuide class="price-guide">
+            <mat-list>
+                <mat-list-item>New Price:</mat-list-item>
+                <mat-list-item>Used Price:</mat-list-item>
+                <mat-list-item>Avg Price:</mat-list-item>
+            </mat-list>
+            <mat-list>
+                <mat-list-item>${{ item?.price?.toFixed(2) }}</mat-list-item>
+                <mat-list-item>${{ item?.price?.toFixed(2) }}</mat-list-item>
+                <mat-list-item>${{ item?.price?.toFixed(2) }}</mat-list-item>
+            </mat-list>
+        </div>
+    </div>
+</div>

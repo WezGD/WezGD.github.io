@@ -1,0 +1,25 @@
+img.item-img {
+    max-width: 20%;
+}
+
+div.parent-div {
+    padding: 1%;
+}
+
+div.details {
+    display: flex;
+    flex-direction: row;
+    height: min-content;
+    padding: 1%;
+}
+
+div.price-guide {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-inline: 3%;
+}
+
+span.header {
+    font-size: x-large;
+}

@@ -20,7 +20,7 @@ export class SideNavComponent {
     {
       title: 'Home Page',
       icon: 'home',
-      link: ''
+      link: 'home'
     },
     {
       title: 'Search Page',

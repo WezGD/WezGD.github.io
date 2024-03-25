@@ -4,6 +4,7 @@ import { MatListModule } from '@angular/material/list';
 import { ItemModel } from '../../../models/item-model';
 import { NgFor } from '@angular/common';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-display',
@@ -33,7 +34,13 @@ export class CardDisplayComponent {
 
   maxCardTitleLength = 16;
 
-  constructor(private responsive: BreakpointObserver) {}
+  constructor(
+    private responsive: BreakpointObserver,
+    private router: Router ) {}
+
+  handleClick = (id: string) => {
+    this.router.navigate(['/item', { id: id }]);
+  }
 
   checkForDuplicates(newItem: ItemModel, items: ItemModel[]) {
     for(let item of items) {
