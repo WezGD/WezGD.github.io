@@ -1,13 +1,21 @@
-mat-card.card-landscape {
+a.card-landscape {
     width: 15%;
     min-width: fit-content;
     margin: 1%;
 }
 
-mat-card.card-portrait {
+a.card-portrait {
     width: 100%;
     margin-inline: 5%;
     margin-block: 2%;
+}
+
+a.removeStyle {
+  text-decoration: none;
+}
+
+mat-card:hover {
+  background-color: #666666;
 }
 
 mat-card-content.portrait {

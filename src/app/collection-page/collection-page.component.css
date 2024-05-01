@@ -1,0 +1,31 @@
+div {
+  display: flex;
+
+  .outer {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .info {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .name {
+    flex-direction: column;
+    min-width: 20%;
+  }
+}
+
+table {
+  background-color: #303030;
+  overflow: hidden;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+h2 {
+  margin-top: 1rem;
+}

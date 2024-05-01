@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { NgForOf } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-side-nav',
@@ -9,7 +10,8 @@ import { NgForOf } from '@angular/common';
   imports: [
     MatListModule,
     MatIconModule,
-    NgForOf
+    NgForOf,
+    RouterModule
   ],
   templateUrl: './side-nav.component.html',
   styleUrl: './side-nav.component.css'
@@ -18,14 +20,24 @@ export class SideNavComponent {
 
   links: LinkModel[] = [
     {
-      title: 'Home Page',
+      title: 'Home',
       icon: 'home',
       link: 'home'
     },
     {
-      title: 'Search Page',
+      title: 'Search Catalog',
       icon: 'search',
       link: 'search'
+    },
+    {
+      title: 'My Collection',
+      icon: 'apps',
+      link: 'collection' // Eventually add ID param
+    },
+    {
+      title: 'My Wishlists',
+      icon: 'library_books',
+      link: 'wishlists' // Eventually add ID param
     }
   ]
 

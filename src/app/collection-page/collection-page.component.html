@@ -1,0 +1,33 @@
+<div class="outer">
+  <div class="info">
+    <div class="name">
+      <h1>{{collection.name}}</h1>
+      <h2>Collection</h2>
+    </div>
+    <table mat-table [dataSource]="[collection]">
+      <ng-container matColumnDef="new-for-sale">
+        <th mat-header-cell *matHeaderCellDef> Price New For Sale </th>
+        <td mat-cell *matCellDef="let element"> {{element.priceNewForSale}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="new-sold">
+        <th mat-header-cell *matHeaderCellDef> Price New Sold </th>
+        <td mat-cell *matCellDef="let element"> {{element.priceNewSold}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="used-for-sale">
+        <th mat-header-cell *matHeaderCellDef> Price Used For Sale </th>
+        <td mat-cell *matCellDef="let element"> {{element.priceUsedForSale}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="used-sold">
+        <th mat-header-cell *matHeaderCellDef> Price Used Sold </th>
+        <td mat-cell *matCellDef="let element"> {{element.priceUsedSold}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>
+
